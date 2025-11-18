@@ -1,0 +1,21 @@
+services:
+  idiomaticapp:
+    build:
+      context: idiomaticapp
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    volumes:
+    - ~/.cache/huggingface/hub/models--meta-llama--Llama-3.2-1B-Instruct:/models/Llama-3.2-1B-Instruct:ro
+    expose:
+      - "8000"
+
+  ivanui:
+    build:
+      context: ivanui
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
