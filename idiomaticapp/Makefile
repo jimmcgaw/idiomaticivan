@@ -3,3 +3,6 @@ run:
 
 chat:
 	uv run python chat.py
+
+sbom:
+	uv run cyclonedx-py environment "$(uv python find)" > sbom.json
